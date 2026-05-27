@@ -20,7 +20,7 @@ void motor_setup(Motor motor)
 
 void motor_move(Motor motor, int speed)
 {
-  if (speed = 0)
+  if (speed == 0)
   {
     pwm_set_gpio_level(motor.pinA, 0);
     pwm_set_gpio_level(motor.pinB, 0);
