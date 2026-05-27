@@ -20,6 +20,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_executable(projSemestral
   src/main.c
+  src/motor.c
 )
 
 target_include_directories(projSemestral PRIVATE
