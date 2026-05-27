@@ -1,4 +1,4 @@
-#include "include/motor.h"
+#include "motor.h"
 
 #include "hardware/gpio.h"
 #include "hardware/pwm.h"

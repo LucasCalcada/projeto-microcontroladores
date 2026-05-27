@@ -1,7 +1,8 @@
 #include "hardware/gpio.h"
 #include "hardware/timer.h"
 
-#include "include/robotConfig.h"
+#include "motor.h"
+#include "robotConfig.h"
 
 int main()
 {

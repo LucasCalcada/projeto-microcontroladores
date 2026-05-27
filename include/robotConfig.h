@@ -1,6 +1,6 @@
 #pragma once
 
-#include "include/motor.h"
+#include "motor.h"
 
 typedef struct
 {
