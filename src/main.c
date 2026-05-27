@@ -6,13 +6,10 @@
 
 int main()
 {
-  motor_setup(robotConfig.frontLeftMotor);
-  motor_setup(robotConfig.frontRightMotor);
-  motor_setup(robotConfig.backLeftMotor);
-  motor_setup(robotConfig.backRightMotor);
-
-  gpio_init(PICO_DEFAULT_LED_PIN);
-  gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
+  motor_setup(frontLeftMotor);
+  motor_setup(frontRightMotor);
+  motor_setup(backLeftMotor);
+  motor_setup(backRightMotor);
 
   while (true)
   {
