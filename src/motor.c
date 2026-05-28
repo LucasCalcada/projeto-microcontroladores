@@ -2,7 +2,7 @@
 
 #include "hardware/gpio.h"
 #include "hardware/pwm.h"
-#include <math.h>
+#include <stdlib.h>
 
 void motor_setup(Motor motor)
 {
@@ -14,6 +14,7 @@ void motor_setup(Motor motor)
 
   pwm_config config = pwm_get_default_config();
   pwm_config_set_clkdiv(&config, 1.0f);
+  pwm_config_set_wrap(&config, 2000);
   uint slice = pwm_gpio_to_slice_num(motor.pinA);
   pwm_init(slice, &config, true);
 }

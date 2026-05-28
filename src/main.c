@@ -1,5 +1,5 @@
 #include "hardware/gpio.h"
-#include "hardware/timer.h"
+#include "pico/stdlib.h"
 
 #include "motor.h"
 #include "robotConfig.h"
@@ -13,9 +13,36 @@ int main()
 
   while (true)
   {
-    gpio_put(PICO_DEFAULT_LED_PIN, true);
+    motor_move(frontLeftMotor, 1000);
     sleep_ms(500);
-    gpio_put(PICO_DEFAULT_LED_PIN, false);
+    motor_move(frontLeftMotor, 0);
+
+    motor_move(frontRightMotor, 1000);
     sleep_ms(500);
+    motor_move(frontRightMotor, 0);
+
+    motor_move(backLeftMotor, 1000);
+    sleep_ms(500);
+    motor_move(backLeftMotor, 0);
+
+    motor_move(backRightMotor, 1000);
+    sleep_ms(500);
+    motor_move(backRightMotor, 0);
+
+    motor_move(frontLeftMotor, -1000);
+    sleep_ms(500);
+    motor_move(frontLeftMotor, 0);
+
+    motor_move(frontRightMotor, -1000);
+    sleep_ms(500);
+    motor_move(frontRightMotor, 0);
+
+    motor_move(backLeftMotor, -1000);
+    sleep_ms(500);
+    motor_move(backLeftMotor, 0);
+
+    motor_move(backRightMotor, -1000);
+    sleep_ms(500);
+    motor_move(backRightMotor, 0);
   }
 }
