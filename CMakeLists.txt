@@ -37,3 +37,5 @@ target_link_libraries(projSemestral
 
 pico_enable_stdio_usb(projSemestral 1)
 pico_enable_stdio_uart(projSemestral 1)
+
+pico_add_extra_outputs(projSemestral)
