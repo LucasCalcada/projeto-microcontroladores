@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
+set(PICO_BOARD pico_w)
 set(PICO_SDK_PATH ${CMAKE_CURRENT_SOURCE_DIR}/pico-sdk)
 include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 
@@ -21,6 +22,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_executable(projSemestral
   src/main.c
   src/motor.c
+  src/bluetooth_controller.c
 )
 
 target_include_directories(projSemestral PRIVATE
@@ -33,6 +35,10 @@ target_link_libraries(projSemestral
   hardware_gpio
   hardware_uart
   hardware_irq
+  pico_btstack_cyw43
+  pico_cyw43_arch_lwip_threadsafe_background
+  pico_btstack_ble
+  pico_btstack_classic
 )
 
 pico_enable_stdio_usb(projSemestral 1)

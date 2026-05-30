@@ -3,46 +3,14 @@
 
 #include "motor.h"
 #include "robotConfig.h"
+#include "bluetooth_controller.h"
+
+BtControllerConfig config = {
+    .addr = {0xe4, 0x17, 0xd8, 0x37, 0x73, 0x23},
+    .status = CONTROLLER_DISCONNECTED};
 
 int main()
 {
-  motor_setup(frontLeftMotor);
-  motor_setup(frontRightMotor);
-  motor_setup(backLeftMotor);
-  motor_setup(backRightMotor);
-
-  while (true)
-  {
-    motor_move(frontLeftMotor, 1000);
-    sleep_ms(500);
-    motor_move(frontLeftMotor, 0);
-
-    motor_move(frontRightMotor, 1000);
-    sleep_ms(500);
-    motor_move(frontRightMotor, 0);
-
-    motor_move(backLeftMotor, 1000);
-    sleep_ms(500);
-    motor_move(backLeftMotor, 0);
-
-    motor_move(backRightMotor, 1000);
-    sleep_ms(500);
-    motor_move(backRightMotor, 0);
-
-    motor_move(frontLeftMotor, -1000);
-    sleep_ms(500);
-    motor_move(frontLeftMotor, 0);
-
-    motor_move(frontRightMotor, -1000);
-    sleep_ms(500);
-    motor_move(frontRightMotor, 0);
-
-    motor_move(backLeftMotor, -1000);
-    sleep_ms(500);
-    motor_move(backLeftMotor, 0);
-
-    motor_move(backRightMotor, -1000);
-    sleep_ms(500);
-    motor_move(backRightMotor, 0);
-  }
+  stdio_init_all();
+  bluetooth_setup(&config);
 }
