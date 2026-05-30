@@ -175,7 +175,7 @@ static void hci_event_handler(uint8_t packet_type, uint16_t channel, uint8_t *pa
       connection_handle = hci_subevent_le_connection_complete_get_connection_handle(packet);
       _config->status = CONTROLLER_CONNECTED;
 
-      printf("[HCI] Controller found, requesting pairing");
+      printf("[HCI] Controller found, requesting pairing\n");
       sm_request_pairing(connection_handle);
       break;
     }
