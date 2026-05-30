@@ -8,6 +8,7 @@
 #include <stdlib.h>
 
 static BtControllerConfig *_config = NULL;
+static controller_handler _handler = NULL;
 
 static btstack_packet_callback_registration_t hci_event_callback_registration;
 static hci_con_handle_t connection_handle = HCI_CON_HANDLE_INVALID;
@@ -131,7 +132,7 @@ static void handle_gatt_client_event(uint8_t packet_type, uint16_t channel, uint
     uint16_t length = gatt_event_notification_get_value_length(packet);
     const uint8_t *value = gatt_event_notification_get_value(packet);
     Controller_Payload *payload = (Controller_Payload *)value;
-    _config->payload = *payload;
+    _handler(payload);
     break;
   }
   }
@@ -301,4 +302,9 @@ void bluetooth_setup(BtControllerConfig *config)
   hci_power_control(HCI_POWER_ON);
 
   btstack_run_loop_execute();
+}
+
+void bluetooth_register_handler(controller_handler handler)
+{
+  _handler = handler;
 }
