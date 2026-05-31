@@ -13,14 +13,32 @@ BtControllerConfig config = {
     .addr = {0xe4, 0x17, 0xd8, 0x37, 0x73, 0x23},
     .status = CONTROLLER_DISCONNECTED};
 
+int axisToSpeed(int val)
+{
+  return (int)((val * MAX_SPEED) / 255);
+}
+
 void input_handler(const Controller_Payload *payload)
 {
-  printf("Joystick L: %2X %2X\n", payload->left.x, payload->left.y);
+  int speedFw = axisToSpeed(payload->triggerRight);
+  int speedBack = axisToSpeed(payload->triggerLeft);
+  int speed = speedFw - speedBack;
+
+  motor_move(&frontLeftMotor, speed);
+  motor_move(&backLeftMotor, speed);
+  motor_move(&frontRightMotor, speed);
+  motor_move(&backRightMotor, speed);
 }
 
 int main()
 {
   stdio_init_all();
+
+  motor_setup(&frontLeftMotor);
+  motor_setup(&backLeftMotor);
+  motor_setup(&frontRightMotor);
+  motor_setup(&backRightMotor);
+
   bluetooth_register_handler(input_handler);
   bluetooth_setup(&config);
 }
