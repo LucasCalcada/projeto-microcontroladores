@@ -2,8 +2,12 @@
 #include "pico/stdlib.h"
 
 #include "motor.h"
-#include "robotConfig.h"
 #include "bluetooth_controller.h"
+
+Motor frontLeftMotor = {.pinA = 3, .pinB = 4, .reversed = false};
+Motor frontRightMotor = {.pinA = 6, .pinB = 7, .reversed = true};
+Motor backRightMotor = {.pinA = 10, .pinB = 11, .reversed = false};
+Motor backLeftMotor = {.pinA = 12, .pinB = 13, .reversed = true};
 
 BtControllerConfig config = {
     .addr = {0xe4, 0x17, 0xd8, 0x37, 0x73, 0x23},
