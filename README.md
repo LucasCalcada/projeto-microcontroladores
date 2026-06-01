@@ -46,27 +46,22 @@ Abaixo temos o esquemático elétrico do sistema, desenvolvido para integrar o m
 Para garantir a comunicação segura entre o sistema de controle e o carrinho, siga os passos abaixo:
 
 1. Ligar o Controle Bluetooth: Ative o controle físico ou o aplicativo emissor de sinal e coloque-o em modo de pareamento.
-
 2. Ligar o Carrinho: Acione a chave geral (SW1) do protótipo para alimentar a lógica da Raspberry Pi Pico W e os drivers de potência.
-
 3. Aguardar o Pareamento: O chip integrado CYW43439 da Pico W buscará automaticamente o sinal do controle.
-
 4. Confirmação: Aguarde a indicação visual do controle confirmando que a conexão Bluetooth foi concluída com sucesso.
 
 ## Instruções de pilotagem
 
 O controle do veículo é distribuído de forma intuitiva através de dois joysticks analógicos:
 
-Joystick Esquerdo (Controle de Direção): \* Responsável por guiar o deslocamento do carrinho no espaço.
+Joystick Esquerdo (Controle de Direção):
 
+- Responsável por guiar o deslocamento do carrinho no espaço.
 - Movimentar para frente ou para trás faz o carrinho se mover em linha reta na respectiva direção.
-
 - Movimentar para os lados (esquerda/direita) faz o carrinho realizar curvas suaves enquanto se desloca.
 
 Joystick Direito (Controle de Rotação):
 
 - Responsável pelo giro sobre o próprio eixo do carrinho.
-
 - Movimentar para a esquerda faz as rodas de um lado girarem em sentido inverso às do outro lado, rotacionando o veículo rapidamente para a esquerda sem sair do lugar.
-
 - Movimentar para a direita realiza a mesma rotação rápida para o sentido horário.
