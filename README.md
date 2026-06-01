@@ -1,8 +1,22 @@
-Descrição/Conceito:
+# Descrição
 
 O projeto consiste em um carro radio-controlado. O carro possui rodas omnidirecionais, possibilitando com que o carro consiga se mover para todas as direções. O carro conta com uma bateria interna para alimentar os motores e os microcontroladores. Assim, permitindo com que o carro seja controlado de forma “remota”.
 
----
+# Requisitos do projeto
+
+| Código | Requisito                                                         | Prioridade  |
+| ------ | ----------------------------------------------------------------- | ----------- |
+| R01    | Conectar com um dispositivo via Bluetooth                         | Obrigatório |
+| R02    | Receber a comunicação do dispositivo conectado                    | Obrigatório |
+| R03    | Interpretar os comandos enviados pelo dispositivo                 | Obrigatório |
+| R04    | Acionar os motores de acordo com os comandos enviados             | Obrigatório |
+| R05    | Utilizar Raspberry Pi como unidade de controle do sistema         | Obrigatório |
+| R06    | Alimentação dos motores e microcontrolador devem vir das baterias | Obrigatório |
+| R07    | Se comunicar com o controle com baixa latência                    | Desejável   |
+
+<img src="assets/block-diagram.png" width="700">
+
+# Lista de materiais
 
 | Item                                            | Preço unitário | Quantidade |   Preço total |
 | ----------------------------------------------- | -------------: | ---------: | ------------: |
@@ -16,24 +30,6 @@ O projeto consiste em um carro radio-controlado. O carro possui rodas omnidireci
 | Suporte para 2 Baterias Li-Ion 18650            |       R$ 10,50 |          1 |      R$ 10,50 |
 | Bateria Li-Ion 18650 3,7V 2550mAh               |       R$ 39,90 |          2 |      R$ 79,80 |
 | **Total**                                       |                |            | **R$ 346,98** |
-
----
-
-| Código | Requisito                                                         | Prioridade  |
-| ------ | ----------------------------------------------------------------- | ----------- |
-| R01    | Conectar com um dispositivo via Bluetooth                         | Obrigatório |
-| R02    | Receber a comunicação do dispositivo conectado                    | Obrigatório |
-| R03    | Interpretar os comandos enviados pelo dispositivo                 | Obrigatório |
-| R04    | Acionar os motores de acordo com os comandos enviados             | Obrigatório |
-| R05    | Utilizar Raspberry Pi como unidade de controle do sistema         | Obrigatório |
-| R06    | Alimentação dos motores e microcontrolador devem vir das baterias | Obrigatório |
-| R07    | Se comunicar com o controle com baixa latência                    | Desejável   |
-
----
-
-<img src="assets/block-diagram.png" width="700">
-
----
 
 # Montagem
 
