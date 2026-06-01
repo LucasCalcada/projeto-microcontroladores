@@ -2,32 +2,26 @@
 #include "pico/stdlib.h"
 
 #include "motor.h"
+#include "movement.h"
 #include "bluetooth_controller.h"
 
 Motor frontLeftMotor = {.pinA = 3, .pinB = 4, .reversed = false};
 Motor frontRightMotor = {.pinA = 6, .pinB = 7, .reversed = true};
-Motor backRightMotor = {.pinA = 10, .pinB = 11, .reversed = false};
 Motor backLeftMotor = {.pinA = 12, .pinB = 13, .reversed = true};
+Motor backRightMotor = {.pinA = 10, .pinB = 11, .reversed = true};
 
 BtControllerConfig config = {
     .addr = {0xe4, 0x17, 0xd8, 0x37, 0x73, 0x23},
     .status = CONTROLLER_DISCONNECTED};
 
-int axisToSpeed(int val)
-{
-  return (int)((val * MAX_SPEED) / 255);
-}
-
 void input_handler(const Controller_Payload *payload)
 {
-  int speedFw = axisToSpeed(payload->triggerRight);
-  int speedBack = axisToSpeed(payload->triggerLeft);
-  int speed = speedFw - speedBack;
+  Movement m = OmniMovement(payload->left, payload->right);
 
-  motor_move(&frontLeftMotor, speed);
-  motor_move(&backLeftMotor, speed);
-  motor_move(&frontRightMotor, speed);
-  motor_move(&backRightMotor, speed);
+  motor_move(&frontLeftMotor, m.frontLeft);
+  motor_move(&backLeftMotor, m.backLeft);
+  motor_move(&frontRightMotor, m.frontRight);
+  motor_move(&backRightMotor, m.backRight);
 }
 
 int main()
