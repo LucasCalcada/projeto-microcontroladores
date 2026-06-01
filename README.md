@@ -14,6 +14,8 @@ O projeto consiste em um carro radio-controlado. O carro possui rodas omnidireci
 | R06    | Alimentação dos motores e microcontrolador devem vir das baterias | Obrigatório |
 | R07    | Se comunicar com o controle com baixa latência                    | Desejável   |
 
+# Diagrama de Blocos
+
 <img src="assets/block-diagram.png" width="700">
 
 # Lista de materiais
